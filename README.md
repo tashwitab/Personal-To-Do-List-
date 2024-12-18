@@ -1,10 +1,17 @@
 # Personal To-Do List Manager in Bash
 
-A simple command-line-based to-do list manager written in Bash that allows users to manage tasks efficiently. This script provides basic functionality to add tasks, view pending tasks, mark tasks as done, and remove tasks from a to-do list stored in a text file.
+This project is a **simple yet powerful command-line To-Do List application** written in Bash. It allows users to securely manage their personal tasks with individual accounts, ensuring data privacy and organization. Designed for users who prefer a lightweight, terminal-based task manager, the application is intuitive, portable, and stores data persistently.
+
+With features like user registration, secure login, and task categorization, this project provides an easy way to manage daily responsibilities. Each user has their own private to-do list, offering task separation and ensuring that tasks are only accessible after authentication. 
+
+The **core features** include task management (add, view, delete, and mark tasks as done), task filtering by category, and password-protected user accounts. Passwords are hashed using the **SHA-256 algorithm** for security, while individual task files (`todo_<username>.txt`) ensure data segregation.
+
+This project is ideal for learning and understanding basic concepts of:
+- User authentication and data security.
+- File handling and persistent storage in Bash.
+- Building interactive command-line applications.
 
 ## Features
-
-### Features of the Code: **Personal To-Do List with User Login**
 
 - **User Registration**:
   - New users can register with a unique username and password.
@@ -43,7 +50,7 @@ A simple command-line-based to-do list manager written in Bash that allows users
   - Users can view tasks filtered by specific categories (e.g., Work, Personal).
 
 - **Logout Functionality**:
-  - Users can log out, returning to the login/registration screen.
+  - Users can log out and return to the login/registration screen.
 
 - **Persistent Storage**:
   - User credentials are stored in a `users.txt` file.
@@ -64,18 +71,35 @@ A simple command-line-based to-do list manager written in Bash that allows users
 
 
 ## How It Works
+### How It Works:
 
-1. **View Tasks**:  
-   The list of tasks is displayed with line numbers using `cat -n.` Each task is marked as either pending `[ ]` or done `[X]`.
+1. **User Registration**:  
+   - New users register by providing a unique username and password.  
+   - Passwords are securely hashed using SHA-256 and stored in a `users.txt` file.  
+   - A personal task file (`todo_<username>.txt`) is created for each user.
 
-2. **Add Tasks**:  
-   New tasks can be added through a simple prompt, and they will appear at the bottom of the to-do list with a `[ ]` indicating that they are pending.
+2. **User Login**:  
+   - Users log in with their credentials.  
+   - Only authenticated users can access their personal tasks.
 
-3. **Mark as Done**:  
-   A task number is provided to mark a task as done, and the script replaces `[ ]` with `[X]` using the `sed` command.
+3. **Task Management**:  
+   - After login, users can:
+     - Add tasks with details (description, priority, deadline, category).
+     - View tasks in a tabular format.
+     - Delete tasks by their ID.
+     - Mark tasks as done (updates status from `TODO` to `DONE`).
+     - Filter tasks by category (e.g., Work, Personal).
 
-4. **Remove Tasks**:  
-   A task number is provided to remove a task from the list, and the corresponding line is deleted using `sed`.
+4. **Logout**:  
+   - Users can log out and return to the login/registration menu.  
+
+5. **Data Separation**:  
+   - Each user’s tasks are stored in a unique file (`todo_<username>.txt`), ensuring privacy and data integrity.
+
+6. **Persistent Storage**:  
+   - User credentials and tasks are saved to disk, allowing access even after the app is closed.  
+
+This system is entirely text-based and operates via a simple, intuitive menu-driven interface.
 
 ## Prerequisites
 
